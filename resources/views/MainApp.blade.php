@@ -25,7 +25,7 @@
     AIRARTIKENNELS
   </title>
   <!--     Fonts and icons     -->
-  
+
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
   <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet" />
@@ -63,7 +63,7 @@
     id="sidenav-main">
     <div class="collapse navbar-collapse w-auto max-height-vh-100 h-100 py-3 bg-dark" style="border-radius: 10px"
       id="sidenav-collapse-main">
-      <div class=" bg-transparent mt-1 left-2 laptop"  align="center">
+      <div class=" bg-transparent mt-1 left-2 laptop" align="center">
 
         <img src="{{ asset('assets/img/airarti/LOGO_AIRARTIKENNELS.jpeg') }}" class="navbar-brand-img" alt="main_logo"
           style="border-radius: 20px;">
@@ -228,17 +228,18 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid ">
+      @include('sweetalert::alert')
       {{-- start content --}}
       @yield('content')
       {{-- end content--}}
     </div>
   </main>
   {{-- footer --}}
-  <nav class="navbar fixed-bottom navbar-dark bg-dark none-t">
+  {{-- <nav class="navbar fixed-bottom navbar-dark bg-dark none-t">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Fixed bottom</a>
     </div>
-  </nav>
+  </nav> --}}
   <!--   Core JS Files   -->
   <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
   <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>

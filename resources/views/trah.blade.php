@@ -52,7 +52,7 @@ Trah
           <div class="row">
             <div class="form-group">
               <label for="exampleFormControlSelect2">Jantan :</label>
-              <select multiple class="form-control" id="dt_jantan">
+              <select multiple class="form-control" name="satwa" id="dt_jantan">
 
               </select>
             </div>
@@ -65,7 +65,7 @@ Trah
           <div class="row">
             <div class="form-group">
               <label for="exampleFormControlSelect2">Betina :</label>
-              <select multiple class="form-control" id="dt_betina">
+              <select multiple class="form-control" name="satwa" id="dt_betina">
 
               </select>
             </div>
@@ -92,7 +92,7 @@ Trah
                 </div>
                 <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
                   <div class="bg-gradient-light border-radius-lg">
-                    <div class="position-relative d-flex align-items-center justify-content-center foto_satwa" >
+                    <div class="position-relative d-flex align-items-center justify-content-center foto_satwa">
                       <div id="foto_satwa"></div>
                     </div>
                   </div>
@@ -144,7 +144,7 @@ Trah
       // jantan
     $.ajax({
          type: "GET",
-         url: "/data_satwa_jantan?id="+r_id  ,
+         url: "/data_satwa_ras_jantan?id="+r_id  ,
          dataType: 'JSON',
          success: function (data) {
             if (data) {
@@ -162,7 +162,7 @@ Trah
       // betina
       $.ajax({
          type: "GET",
-         url: "/data_satwa_betina?id="+r_id  ,
+         url: "/data_satwa_ras_betina?id="+r_id  ,
          dataType: 'JSON',
          success: function (data) {
             if (data) {
@@ -201,7 +201,7 @@ Trah
                $.each(data, function (index, item) {
                   $("#nama_ras").append(item.nama_ras);
                   $("#nama_satwa").append(item.nama_satwa);
-                  $("#foto_satwa").append('<img class="position-inline z-index-2 pt-4 py-4" src="https://internal.airartikennels.co.id/'+item.foto_satwa+'" style="heigth:200px !Important;" alt="rocket">');
+                  $("#foto_satwa").append('<img class="position-inline z-index-2 pt-4 py-4" src="http://localhost:8000/'+item.foto_satwa+'" style="heigth:200px !Important;" alt="rocket">');
                   // $("#test").append('cek');
                   // console.log(data);
                 });
@@ -239,7 +239,7 @@ Trah
                   $("#nama_ras").append(item.nama_ras);
                   $("#nama_satwa").append(item.nama_satwa);
                   $("#usia").append(item.umur_thn);
-                  $("#foto_satwa").append('<img class="position-inline z-index-2 pt-4 py-4" src="https://internal.airartikennels.co.id/'+item.foto_satwa+'" style="heigth:200px !Important;" alt="rocket">');
+                  $("#foto_satwa").append('<img class="position-inline z-index-2 pt-4 py-4" src="http://localhost:8000/'+item.foto_satwa+'" style="heigth:50% !Important; width:90% !important;" alt="satwa">');
                   // $("#test").append('cek');
                   console.log(data);
                 });

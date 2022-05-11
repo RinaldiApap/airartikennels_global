@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ControllerHome;
 use App\Http\Controllers\ControllerLogin;
 use App\Http\Controllers\ControllerSatwa;
 use App\Http\Controllers\ControllerSupport;
@@ -23,8 +24,8 @@ Route::get('about_us', function () {
     return view('about_us');
 });
 Route::get('trah', [ControllerSupport::class, 'data_satwa']);
-Route::get('/data_satwa_jantan', [ControllerSupport::class, 'data_satwa_ras_jantan']);
-Route::get('/data_satwa_betina', [ControllerSupport::class, 'data_satwa_ras_betina']);
+Route::get('/data_satwa_ras_jantan', [ControllerSupport::class, 'data_satwa_ras_jantan']);
+Route::get('/data_satwa_ras_betina', [ControllerSupport::class, 'data_satwa_ras_betina']);
 Route::get('/data_satwa_by_id', [ControllerSupport::class, 'data_satwa_by_id']);
 Route::get('showing', function () {
     return view('showing');
@@ -36,6 +37,7 @@ Route::get('/data_ras', [ControllerSatwa::class, 'data_ras']);
 Route::post('/add_ras', [ControllerSatwa::class, 'add_ras']);
 Route::post('/edit_ras/{id}', [ControllerSatwa::class, 'edit_ras']);
 Route::get('/hapus_ras/{id}', [ControllerSatwa::class, 'hapus_ras']);
+Route::get('data_award/{id}/{nama_satwa}', [ControllerSatwa::class, 'data_award']);
 
 
 
@@ -43,9 +45,9 @@ Route::get('/hapus_ras/{id}', [ControllerSatwa::class, 'hapus_ras']);
 Route::get('adm_ext', function () {
     return view('adm_ext.index');
 });
-Route::get('adm_ext_home', function () {
-    return view('adm_ext.home');
-});
+
+Route::get('adm_ext_home', [ControllerHome::class, 'adm_ext_home']);
+
 // Route::get('adm_ext_data_satwa', function () {
 //     return view('adm_ext.data_satwa');
 // });

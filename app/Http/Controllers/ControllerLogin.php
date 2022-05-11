@@ -16,6 +16,6 @@ class ControllerLogin extends Controller
 
         // return $password;
         // return $request->all();
-        return view('adm_ext.home');
+        return redirect('adm_ext_home');
     }
 }

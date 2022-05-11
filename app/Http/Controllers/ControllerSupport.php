@@ -20,14 +20,10 @@ class ControllerSupport extends Controller
     {
         $dt_jantan = DB::table('t_satwa')
             ->select('id_satwa', 'nama_satwa')
-            ->where('id_ras', $request->id)
+            ->where('ras', $request->id)
             ->where('jk', 1)
+            ->where('status', 1)
             ->get();
-        // $dt_betina = DB::table('t_satwa')
-        //     ->select('*')
-        //     ->where('id_ras', $request->id)
-        //     ->where('jk', 2)
-        //     ->get();
         return response()->json($dt_jantan);
     }
 
@@ -35,8 +31,9 @@ class ControllerSupport extends Controller
     {
         $dt_betina = DB::table('t_satwa')
             ->select('*')
-            ->where('id_ras', $request->id)
+            ->where('ras', $request->id)
             ->where('jk', 2)
+            ->where('status', 1)
             ->get();
         return response()->json($dt_betina);
     }
@@ -44,8 +41,8 @@ class ControllerSupport extends Controller
     public function data_satwa_by_id(Request $request)
     {
         $dt_satwa_id = DB::table('t_satwa')
-        ->select('*')
-            ->join('r_ras', 't_satwa.id_ras', '=', 'r_ras.id_ras')
+            ->select('*')
+            ->join('r_ras', 't_satwa.ras', '=', 'r_ras.id_ras')
             ->where('id_satwa', $request->id)
             ->get();
         // $dt_satwa_id = DB::select('SELECT *, timestampdiff(year, tgl_lhr, curdate()) as umur_thn, timestampdiff(month, tgl_lhr, curdate()) as umur_bln, timestampdiff(day, tgl_lhr, curdate()) as umur_hari 

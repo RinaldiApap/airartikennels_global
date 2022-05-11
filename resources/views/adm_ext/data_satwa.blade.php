@@ -79,6 +79,8 @@ Satwa
                                     data-target="#editData{{$item->id_satwa}}"><i class="fa fa-edit"></i></button>
                                 <button type="button" class="btn btn-sm btn-danger" data-toggle="modal"
                                     data-target="#deleteData{{$item->id_satwa}}"><i class="fa fa-trash"></i></button>
+                                <a href="{{ url('data_award/'.$item->id_satwa).'/'.$item->nama_satwa }}"
+                                    class="btn btn-sm btn-primary"><i class="fa fa-award"></i></a>
                             </td>
                         </tr>
                         <!-- Add Modal-->
@@ -93,9 +95,21 @@ Satwa
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="{{ url('/edit_satwa/'.$item->id_satwa) }}" method="post">
+                                        <form action="{{ url('/edit_satwa/'.$item->id_satwa) }}" method="post"
+                                            enctype="multipart/form-data">
                                             @csrf
                                             <div class="row">
+                                                <div class="col-sm-12">
+                                                    <img src="{{ asset($item->foto_satwa) }}"
+                                                        style="width: 100%; overflow: hidden;" alt="">
+                                                </div>
+                                                <div class="mb-3 col-sm-12">
+                                                    <label for="" class="form-label">Ubah Foto Satwa</label>
+                                                    <input type="file" class="form-control" name="foto_satwa_up" id=""
+                                                        aria-describedby="helpId" accept="image/*">
+                                                    <small id="helpId" class="form-text text-muted"></small>
+                                                </div>
+
                                                 <div class="mb-3 col-sm-12">
                                                     <label for="" class="form-label">Nama Satwa</label>
                                                     <input type="text" class="form-control" name="nama_satwa" id=""
@@ -103,6 +117,7 @@ Satwa
                                                         required>
                                                     <small id="helpId" class="form-text text-muted"></small>
                                                 </div>
+
                                                 <div class="mb-3 col-sm-12">
                                                     <label for="" class="form-label">Tgl Lahir</label>
                                                     <input type="date" class="form-control" name="tgl_lhr" id=""
@@ -217,9 +232,14 @@ Satwa
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ url('/add_satwa') }}" method="post">
+                <form action="{{ url('/add_satwa') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
+                        <div class="mb-3 col-sm-12">
+                            <label for="formFile" class="form-label">Foto Satwa</label>
+                            <input class="form-control" type="file" id="" name="foto_satwa" accept="image/*">
+                            <small id="helpId" class="form-text text-muted"></small>
+                        </div>
                         <div class="mb-3 col-sm-12">
                             <label for="" class="form-label">Nama Satwa</label>
                             <input type="text" class="form-control" name="nama_satwa" id="" aria-describedby="helpId"
@@ -251,20 +271,26 @@ Satwa
                         </div>
                         <div class="mb-3 col-sm-4">
                             <label for="" class="form-label">Tinggi</label>
-                            <input type="number" class="form-control" name="tinggi" id="" aria-describedby="helpId"
-                                placeholder="" required>
+                            <input type="text" class="form-control" name="tinggi" id="" aria-describedby="helpId"
+                                placeholder=""
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                required>
                             <small id="helpId" class="form-text text-muted"></small>
                         </div>
                         <div class="mb-3 col-sm-4">
                             <label for="" class="form-label">BB</label>
-                            <input type="number" class="form-control" name="bb" id="" aria-describedby="helpId"
-                                placeholder="" required>
+                            <input type="text" class="form-control" name="bb" id="" aria-describedby="helpId"
+                                placeholder=""
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                required>
                             <small id="helpId" class="form-text text-muted"></small>
                         </div>
                         <div class="mb-3 col-sm-4">
                             <label for="" class="form-label">Panjang</label>
-                            <input type="number" class="form-control" name="panjang" id="" aria-describedby="helpId"
-                                placeholder="" required>
+                            <input type="text" class="form-control" name="panjang" id="" aria-describedby="helpId"
+                                placeholder=""
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                required>
                             <small id="helpId" class="form-text text-muted"></small>
                         </div>
                         <div class="mb-3 col-sm-6">

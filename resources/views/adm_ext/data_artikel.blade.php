@@ -8,146 +8,143 @@ active
 Artikel
 @endsection
 
+
 @section('content')
-<div class="content mt-3">
-    <div class="animated fadeIn">
-        <div class="row">
 
-            <div class="col-md-12">
-                <div class="d-flex justify-content-end pb-2">
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalCenter">
-                        <i class="fa fa-plus"></i> ADD
-                    </button>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <strong class="card-title">Data Artikel</strong>
-                    </div>
-                    <div class="card-body">
-                        <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Judul</th>
-                                    <th>Tgl Post</th>
-                                    <th>Kategori</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+<div class="container-fluid">
 
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-
+    <div class="d-flex justify-content-end pb-2">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addData"><i
+                class="fa fa-plus"></i> ADD</button>
+    </div>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Tabel Data Artikel</h6>
         </div>
-    </div><!-- .animated -->
-</div><!-- .content -->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Judul</th>
+                            <th>Tgl Posting</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Judul</th>
+                            <th>Tgl Posting</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
 
-
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Tambah Artikel</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                {{-- input --}}
-                <div class="card">
-
-                    <div class="card-body card-block">
-                        <div class="form-group">
-                            <label class=" form-control-label">Nama Satwa</label>
-                            <div class="input-group">
-                                <div class="input-group-addon"><i class="fa fa-paw"></i></div>
-                                <input class="form-control">
-                            </div>
-                            <small class="form-text text-muted"></small>
-                        </div>
-                        <div class="form-group">
-                            <label class=" form-control-label">Ras</label>
-                            <div class="input-group">
-                                <div class="input-group-addon"><i class="fa fa-circle"></i></div>
-                                <select data-placeholder="Pilih Ras..." class="standardSelect form-control"
-                                    tabindex="1">
-                                    <option value="" disabled selected>-- PILIH --</option>
-                                    <option value="United States">United States</option>
-                                    <option value="United Kingdom">United Kingdom</option>
-                                    <option value="Afghanistan">Afghanistan</option>
-                                    <option value="Aland Islands">Aland Islands</option>
-                                    <option value="Albania">Albania</option>
-                                    <option value="Algeria">Algeria</option>
-                                    <option value="American Samoa">American Samoa</option>
-                                    <option value="Andorra">Andorra</option>
-                                    <option value="Angola">Angola</option>
-                                    <option value="Anguilla">Anguilla</option>
-                                    <option value="Antarctica">Antarctica</option>
-                                </select>
-                            </div>
-                            <small class="form-text text-muted"></small>
-                        </div>
-                        <div class="form-group">
-                            <label class=" form-control-label">Jenis Kelamin</label>
-                            <div class="input-group">
-                                <div class="input-group-addon"><i class="fa fa-genderless"></i></div>
-                                <select data-placeholder="Pilih Ras..." class="standardSelect form-control"
-                                    tabindex="1">
-                                    <option value="" disabled selected>-- PILIH --</option>
-                                    <option value="1">Jantan</option>
-                                    <option value="2">Betina</option>
-                                </select>
-                            </div>
-                            <small class="form-text text-muted"></small>
-                        </div>
-                        <div class="form-group">
-                            <label class=" form-control-label">DOB</label>
-                            <div class="input-group">
-                                <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                <input type="date" class="form-control">
-                            </div>
-                            <small class="form-text text-muted">31/12/1990</small>
-                        </div>
-                        <div class="form-group">
-                            <label class=" form-control-label">Stambum</label>
-                            <div class="input-group">
-                                <div class="input-group-addon"><i class="fa fa-certificate"></i></div>
-                                <select data-placeholder="Pilih Ras..." class="standardSelect form-control"
-                                    tabindex="1">
-                                    <option value="" disabled selected>-- PILIH --</option>
-                                    <option value="1">Yes</option>
-                                    <option value="2">No</option>
-                                </select>
-                            </div>
-                            <small class="form-text text-muted"></small>
-                        </div>
-                        <div class="form-group">
-                            <label class=" form-control-label">Vaccine</label>
-                            <div class="input-group">
-                                <div class="input-group-addon"><i class="fa fa-stethoscope"></i></div>
-                                <select data-placeholder="Pilih Ras..." class="standardSelect form-control"
-                                    tabindex="1">
-                                    <option value="" disabled selected>-- PILIH --</option>
-                                    <option value="1">Yes</option>
-                                    <option value="2">No</option>
-                                </select>
-                            </div>
-                            <small class="form-text text-muted"></small>
-                        </div>
-                        {{-- --}}
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-info">Simpan</button>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Add Modal-->
+<div class="modal fade" id="addData" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Data Satwa</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ url('') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="mb-3 col-sm-12">
+                            <label for="formFile" class="form-label">Foto Satwa</label>
+                            <input class="form-control" type="file" id="" name="foto_satwa" accept="image/*">
+                            <small id="helpId" class="form-text text-muted"></small>
+                        </div>
+                        <div class="mb-3 col-sm-12">
+                            <label for="" class="form-label">Nama Satwa</label>
+                            <input type="text" class="form-control" name="nama_satwa" id="" aria-describedby="helpId"
+                                placeholder="Nama Satwa" required>
+                            <small id="helpId" class="form-text text-muted"></small>
+                        </div>
+                        <div class="mb-3 col-sm-12">
+                            <label for="" class="form-label">Tgl Lahir</label>
+                            <input type="date" class="form-control" name="tgl_lhr" id="" aria-describedby="helpId"
+                                placeholder="" required>
+                            <small id="helpId" class="form-text text-muted"></small>
+                        </div>
+                        <div class="mb-3 col-sm-12">
+                            <label for="" class="form-label">Ras</label>
+                            <select class="form-control" name="ras" id="" required>
+                                <option value="" selected disabled>-- PILIH --</option>
+
+                            </select>
+                        </div>
+                        <div class="mb-3 col-sm-12">
+                            <label for="" class="form-label">Jenis Kelamin</label>
+                            <select class="form-control" name="jk" id="" required>
+                                <option value="" selected disabled>-- PILIH --</option>
+                                <option value="1">Jantan</option>
+                                <option value="2">Betina</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-sm-4">
+                            <label for="" class="form-label">Tinggi</label>
+                            <input type="text" class="form-control" name="tinggi" id="" aria-describedby="helpId"
+                                placeholder=""
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                required>
+                            <small id="helpId" class="form-text text-muted"></small>
+                        </div>
+                        <div class="mb-3 col-sm-4">
+                            <label for="" class="form-label">BB</label>
+                            <input type="text" class="form-control" name="bb" id="" aria-describedby="helpId"
+                                placeholder=""
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                required>
+                            <small id="helpId" class="form-text text-muted"></small>
+                        </div>
+                        <div class="mb-3 col-sm-4">
+                            <label for="" class="form-label">Panjang</label>
+                            <input type="text" class="form-control" name="panjang" id="" aria-describedby="helpId"
+                                placeholder=""
+                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                required>
+                            <small id="helpId" class="form-text text-muted"></small>
+                        </div>
+                        <div class="mb-3 col-sm-6">
+                            <label for="" class="form-label">Stambum</label>
+                            <select class="form-control" name="stambum" id="" required>
+                                <option value="" selected disabled>-- PILIH --</option>
+                                <option value="1">Yes</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-sm-6">
+                            <label for="" class="form-label">Vaccine</label>
+                            <select class="form-control" name="vaccine" id="" required>
+                                <option value="" selected disabled>-- PILIH --</option>
+                                <option value="1">Yes</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
